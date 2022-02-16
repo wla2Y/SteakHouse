@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-feature-section',
@@ -6,22 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./feature-section.component.css'],
 })
 export class FeatureSectionComponent implements OnInit {
-  feature = [
-    {
-      name: 'SPECIAL DISH',
-      icon: 'fa fa-cutlery',
-     
-    },
-    {
-      name: 'BLACK COFFEE',
-      icon: 'fa fa-coffee',
-      
-    },
 
-    { name: 'DINNER', icon: 'fa fa-bell-o', },
-  ];
+  @Input() features:any;
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+
+  }
 }
