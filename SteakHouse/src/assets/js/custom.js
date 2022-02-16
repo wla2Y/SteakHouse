@@ -102,9 +102,9 @@ $(document).ready(function() {
   $(function(){
     jQuery(document).ready(function() {
     $('#home').backstretch([
-       "src/assets/images/home-bg-slideshow1.jpg", 
-       "src/assets/images/home-bg-slideshow2.jpg",
-       "src/assets/images/home-bg-slideshow3.jpg",
+      "assets/images/home-bg-slideshow1.jpg", 
+      "assets/images/home-bg-slideshow2.jpg",
+      "assets/images/home-bg-slideshow3.jpg",
         ],  {duration: 2000, fade: 750});
     });
   })
