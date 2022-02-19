@@ -1,9 +1,6 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-
 import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
 import { NavigationSectionComponent } from './navigation-section/navigation-section.component';
 import { FeatureSectionComponent } from './feature-section/feature-section.component';
@@ -13,12 +10,12 @@ import { MenuSectionComponent } from './menu-section/menu-section.component';
 import { ContactSectionComponent } from './contact-section/contact-section.component';
 import { FooterSectionComponent } from './footer-section/footer-section.component';
 import { CopyrightSectionComponent } from './copyright-section/copyright-section.component';
-
-
+//import {throwError } from 'rxjs';
+import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { AppService } from './AppService';
 
 const appRoutes: Routes = [{ path: '', component: HomeComponent }];
-
-
 
 @NgModule({
   declarations: [
@@ -31,13 +28,10 @@ const appRoutes: Routes = [{ path: '', component: HomeComponent }];
     MenuSectionComponent,
     ContactSectionComponent,
     FooterSectionComponent,
-    CopyrightSectionComponent
+    CopyrightSectionComponent,
   ],
-  imports: [
-    BrowserModule,
-    RouterModule.forRoot(appRoutes)
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+  imports: [BrowserModule, RouterModule.forRoot(appRoutes), HttpClientModule],
+  providers: [AppService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

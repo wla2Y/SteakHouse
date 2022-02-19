@@ -1,42 +1,65 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
 import { Feature } from './data/app.data';
-
-
+import { Menulist } from './data/app.data';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'SteakHouse';
-  features:Array<any> = [];
-  
-  constructor() {}
 
-  ngOnInit(): void {
-    /* TODO:
-      Call API to file Featurs
-      Call API to fill Menu
-      Make calls feature;
-      Make class from Menu item
-      Then move it to app service
-      //https://mocki.io/v1/8d1ab585-468c-4cff-aad9-118cf376858d
-      //https://mocki.io/v1/9ad5f6cd-cb36-42f1-8b0e-aa93e8ed233f
+  features: Array<Feature> = [];
+  menuItem: Array<Menulist> = [];
 
-    */
-    this.features = [
-      {
-        'name': 'SPECIAL DISH',
-        'icon': 'fa fa-cutlery',
-       
-      },
-      {
-        'name': 'BLACK COFFEE',
-        'icon': 'fa fa-coffee',
-        
-      },
-      { 'name': 'DINNER', 'icon': 'fa fa-bell-o', },
-    ];
+  constructor(private http: HttpClient) {}
+
+//  constructor(private _appService: appService) { }  
+
+  ngOnInit() {
+    this.http
+      .get<Feature[]>(
+        'https://mocki.io/v1/9ad5f6cd-cb36-42f1-8b0e-aa93e8ed233f'
+      )
+      .subscribe((Fdata) => {
+        this.features = Fdata;
+      });
+
+    this.http
+      .get<Menulist[]>(
+        'https://mocki.io/v1/8d1ab585-468c-4cff-aad9-118cf376858d'
+      )
+      .subscribe((Mdata) => {
+        this.menuItem = Mdata;
+      });
+
+//      this.value = this._appService.getApp(); 
   }
 
+  /* TODO:
+
+      Then move it to app service
+      loader
+      error handlling
+      api post daTA , output
+   
+    */
+
+
+
+  // this.features = [
+  //   {
+  //     'name': 'SPECIAL DISH',
+  //     'icon': 'fa fa-cutlery',
+
+  //   },
+  //   {
+  //     'name': 'BLACK COFFEE',
+  //     'icon': 'fa fa-coffee',
+
+  //   },
+  //   { 'name': 'DINNER', 'icon': 'fa fa-bell-o', },
+  // ];
 }
