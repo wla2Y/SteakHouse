@@ -8,7 +8,8 @@ import { Component, Input, OnInit } from '@angular/core';
 export class FeatureSectionComponent implements OnInit {
 
   @Input() features:any;
-
+  @Input() featuresLoader:boolean = true;
+  
   constructor() {}
 
   ngOnInit(): void {
