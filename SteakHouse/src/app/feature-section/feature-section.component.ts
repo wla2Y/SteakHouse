@@ -6,14 +6,16 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./feature-section.component.css'],
 })
 export class FeatureSectionComponent implements OnInit {
+  @Input() features: any;
+  @Input() featuresLoader: boolean = true;
 
-  @Input() features:any;
-  @Input() featuresLoader:boolean = true;
-  
   constructor() {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
 
-
-  }
+  // features = [
+  //   {'name': 'SPECIAL DISH', 'icon': 'fa fa-cutlery',},
+  //   {'name': 'BLACK COFFEE','icon': 'fa fa-coffee',},
+  //   { 'name': 'DINNER', 'icon': 'fa fa-bell-o', },
+  //];
 }
