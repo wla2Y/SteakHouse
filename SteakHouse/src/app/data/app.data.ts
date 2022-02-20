@@ -10,4 +10,3 @@ export interface Menulist{
     imgtype:string ; 
     price:number ;
 }
-

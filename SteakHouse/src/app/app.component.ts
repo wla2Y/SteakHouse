@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Feature } from './data/app.data';
 import { Menulist } from './data/app.data';
 import { AppService } from './AppService';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +16,7 @@ export class AppComponent implements OnInit {
 
   features: Array<Feature> = [];
   menuItem: Array<Menulist> = [];
+  
   featuresLoader = true;
   MenuLoader = true;
   constructor(private http: HttpClient, private _appService: AppService) {}
@@ -30,11 +32,10 @@ export class AppComponent implements OnInit {
       this.MenuLoader = false;
     });
 
-  // this.http.get<Feature[]>('https://mocki.io/v1/9ad5f6cd-cb36-42f1-8b0e-aa93e8ed233f').subscribe((Fdata) => {
-  //  this.features = Fdata;});
-  // this.http.get<Menulist[]>('https://mocki.io/v1/8d1ab585-468c-4cff-aad9-118cf376858d').subscribe((Mdata) => {this.menuItem = Mdata;});    //      this.value = this._appService.getApp();
+    // this.http.get<Feature[]>('https://mocki.io/v1/9ad5f6cd-cb36-42f1-8b0e-aa93e8ed233f').subscribe((Fdata) => {
+    //  this.features = Fdata;});
+    // this.http.get<Menulist[]>('https://mocki.io/v1/8d1ab585-468c-4cff-aad9-118cf376858d').subscribe((Mdata) => {this.menuItem = Mdata;});    //      this.value = this._appService.getApp();
   }
 
   /* TODO:api post daTA , output*/
- 
 }

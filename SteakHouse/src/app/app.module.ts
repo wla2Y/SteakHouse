@@ -15,6 +15,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { AppService } from './AppService';
 
+import { FormsModule } from '@angular/forms'; 
+
 const appRoutes: Routes = [{ path: '', component: HomeComponent }];
 
 @NgModule({
@@ -29,8 +31,9 @@ const appRoutes: Routes = [{ path: '', component: HomeComponent }];
     ContactSectionComponent,
     FooterSectionComponent,
     CopyrightSectionComponent,
+    
   ],
-  imports: [BrowserModule, RouterModule.forRoot(appRoutes), HttpClientModule],
+  imports: [BrowserModule, RouterModule.forRoot(appRoutes), HttpClientModule ,  FormsModule ],
   providers: [AppService],
   bootstrap: [AppComponent],
 })
