@@ -10,12 +10,10 @@ import { MenuSectionComponent } from './menu-section/menu-section.component';
 import { ContactSectionComponent } from './contact-section/contact-section.component';
 import { FooterSectionComponent } from './footer-section/footer-section.component';
 import { CopyrightSectionComponent } from './copyright-section/copyright-section.component';
-//import {throwError } from 'rxjs';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { AppService } from './AppService';
-
-import { FormsModule } from '@angular/forms'; 
+import { FormsModule } from '@angular/forms';
 
 const appRoutes: Routes = [{ path: '', component: HomeComponent }];
 
@@ -31,9 +29,13 @@ const appRoutes: Routes = [{ path: '', component: HomeComponent }];
     ContactSectionComponent,
     FooterSectionComponent,
     CopyrightSectionComponent,
-    
   ],
-  imports: [BrowserModule, RouterModule.forRoot(appRoutes), HttpClientModule ,  FormsModule ],
+  imports: [
+    BrowserModule,
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule,
+    FormsModule,
+  ],
   providers: [AppService],
   bootstrap: [AppComponent],
 })

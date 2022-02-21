@@ -10,3 +10,9 @@ export interface Menulist{
     imgtype:string ; 
     price:number ;
 }
+
+export interface contact {
+   name:string
+  email:string
+  message:string
+}

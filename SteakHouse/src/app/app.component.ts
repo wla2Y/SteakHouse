@@ -4,7 +4,6 @@ import { HttpClient } from '@angular/common/http';
 import { Feature } from './data/app.data';
 import { Menulist } from './data/app.data';
 import { AppService } from './AppService';
-import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +15,7 @@ export class AppComponent implements OnInit {
 
   features: Array<Feature> = [];
   menuItem: Array<Menulist> = [];
-  
+
   featuresLoader = true;
   MenuLoader = true;
   constructor(private http: HttpClient, private _appService: AppService) {}

@@ -1,8 +1,14 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Feature, Menulist } from './data/app.data';
+import {
+  HttpClient,
+  HttpErrorResponse,
+  HttpParams,
+  HttpHeaders,
+} from '@angular/common/http';
+import { Feature, Menulist ,contact } from './data/app.data';
 import { catchError, retry } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
+//import { repos } from './repos';
 
 @Injectable()
 export class AppService {
@@ -23,7 +29,6 @@ export class AppService {
       )
       .pipe(retry(3), catchError(this.handleError));
   }
-
 
   private handleError(error: HttpErrorResponse) {
     if (error.status === 0) {
