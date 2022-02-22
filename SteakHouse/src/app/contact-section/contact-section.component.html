@@ -13,7 +13,7 @@
                     <form id="contact-form" method="post" action="#">
                         <input  type="text" id="name" name="name" class="form-control" placeholder="Your Name" required [(ngModel)]="name">
                         <input type="email"  id="email" name="email"   class="form-control" placeholder="Your Email" required [(ngModel)]="email">
-                        <textarea name="message" id="message" class="form-control" placeholder="Message" rows="5" [(ngModel)]="message"
+                        <textarea name="message" class="form-control" placeholder="Message" rows="5" 
                             required></textarea>
                         <input type="submit" class="form-control submit" value="SEND MESSAGE" (click)="send()">
                     </form>

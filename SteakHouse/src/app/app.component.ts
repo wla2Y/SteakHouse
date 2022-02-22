@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { Feature } from './data/app.data';
+import { contact, Feature } from './data/app.data';
 import { Menulist } from './data/app.data';
 import { AppService } from './AppService';
 
@@ -15,6 +15,7 @@ export class AppComponent implements OnInit {
 
   features: Array<Feature> = [];
   menuItem: Array<Menulist> = [];
+  contact: Array<contact> = [];
 
   featuresLoader = true;
   MenuLoader = true;
@@ -34,6 +35,10 @@ export class AppComponent implements OnInit {
     // this.http.get<Feature[]>('https://mocki.io/v1/9ad5f6cd-cb36-42f1-8b0e-aa93e8ed233f').subscribe((Fdata) => {
     //  this.features = Fdata;});
     // this.http.get<Menulist[]>('https://mocki.io/v1/8d1ab585-468c-4cff-aad9-118cf376858d').subscribe((Mdata) => {this.menuItem = Mdata;});    //      this.value = this._appService.getApp();
+
+    this._appService.postcontact(this.contact).subscribe((data): void => {
+      this.contact = data;
+    });
   }
 
   /* TODO:api post daTA , output*/

@@ -14,6 +14,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { AppService } from './AppService';
 import { FormsModule } from '@angular/forms';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+
 
 const appRoutes: Routes = [{ path: '', component: HomeComponent }];
 
@@ -36,6 +38,7 @@ const appRoutes: Routes = [{ path: '', component: HomeComponent }];
     HttpClientModule,
     FormsModule,
   ],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers: [AppService],
   bootstrap: [AppComponent],
 })

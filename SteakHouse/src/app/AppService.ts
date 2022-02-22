@@ -1,14 +1,8 @@
 import { Injectable } from '@angular/core';
-import {
-  HttpClient,
-  HttpErrorResponse,
-  HttpParams,
-  HttpHeaders,
-} from '@angular/common/http';
-import { Feature, Menulist ,contact } from './data/app.data';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { contact, Feature, Menulist } from './data/app.data';
 import { catchError, retry } from 'rxjs/operators';
-import { Observable, throwError } from 'rxjs';
-//import { repos } from './repos';
+import { observable, Observable, throwError } from 'rxjs';
 
 @Injectable()
 export class AppService {
@@ -28,7 +22,18 @@ export class AppService {
         'https://mocki.io/v1/8d1ab585-468c-4cff-aad9-118cf376858d'
       )
       .pipe(retry(3), catchError(this.handleError));
-  }
+ }
+
+
+
+// https://reqres.in/invalid-url 
+
+postcontact(contact:contact[]): Observable<contact[]>{
+     return this.http.post<contact[]>('http://localhost:3000/',contact ) /// json-server --watch dataContact.json 
+     .pipe(retry(3), catchError(this.handleError)); // npm run mock:server 
+
+     
+   }
 
   private handleError(error: HttpErrorResponse) {
     if (error.status === 0) {
@@ -43,4 +48,8 @@ export class AppService {
       () => new Error('Something bad happened; please try again later.')
     );
   }
+
+
+
+
 }
